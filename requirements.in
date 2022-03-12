@@ -1,0 +1,11 @@
+# Pip tools
+pip-tools
+
+# Flask
+flask
+flask-bootstrap
+flask-wtf
+blinker
+
+# Testing
+flask-testing
