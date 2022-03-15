@@ -3,23 +3,26 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block title %}
-{{ super() }}
+  {{ super() }}
 {% endblock %}
 
 {% block content %}
+  {% if username %}
+    <h1>Welcome {{ username }}</h1>
+  {% endif %}
   {% if user_ip %}
-    <h1>Hello, tu IP es {{ user_ip }}</h1>
+    <h2>Hello, tu IP es {{ user_ip }}</h2>
   {% else %}
-  <a href="{{ url_for('index') }}">Ir al inicio</a>
+    <a href="{{ url_for('index') }}">Ir al inicio</a>
   {% endif %}
   <div class="container">
-    <form action="." method="post">
-      {{ wtf.quick_form(login_form) }}
-    </form>
+    {{ wtf.quick_form(todo_form) }}
   </div>
   <div>
-  {% for todo in todos %}
-    {{ macros.render_todo(todo) }}
-  {% endfor %}
+    {% for todo in todos %}
+      <ul class="list-group">
+        {{ macros.render_todo(todo, delete_form, update_form) }}
+      </ul>
+    {% endfor %}
   </div>
 {% endblock %}

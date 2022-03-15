@@ -6,6 +6,10 @@ flask
 flask-bootstrap
 flask-wtf
 blinker
+flask-login
 
 # Testing
 flask-testing
+
+# Database
+firebase-admin
